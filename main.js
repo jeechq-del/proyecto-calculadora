@@ -1,46 +1,57 @@
 function principal() {
-    console.log("¡Hola, estudiantes!");
-    console.log("Suma de [5, 7, 9]:", sumarMultiplesNumeros([5, 7, 9]));
-    console.log("Producto de [4, 5, 6, 7]:", multiplicarMultiplesNumeros([4, 5, 6, 7]));
-    console.log("¿6 es par?", esPar(6));
-    console.log("¿7.3 es entero?", esEntero(7.3));
+  console.log("¡Hola, estudiantes!");
+  esEntero(3);
+  esPar(6);
+  sumarMultiplesNumeros([5,7,9]); 
+  multiplicarMultiplesNumeros([4,5,6]);
 }
 
-function sumarMultiplesNumeros(numeros) {
-    let suma = 0;
-    for (let i = 0; i < numeros.length; i++) {
-        suma = suma + numeros[i];
-    }
-    return suma;
+// Funciones requeridas para la calificación automática
+function sumarMultiplesNumeros(numeros) { 
+  const a = numeros[0];
+  const b = numeros[1];
+  const c = numeros[2];
+
+  const suma = a + b + c; 
+  console.log(suma);
 }
 
 function multiplicarMultiplesNumeros(numeros) {
-    let producto = 1;
-    for (let i = 0; i < numeros.length; i++) {
-        producto = producto * numeros[i];
-    }
-    return producto;
+  
+  const a = numeros[0];
+  const b = numeros[1];
+  const c = numeros[2];
+  const multiplicacion= a*b*c
+  console.log(multiplicacion);
 }
 
 function esPar(numero) {
-    return Number.isInteger(numero) && numero % 2 === 0;
+  
+  let residuo = numero % 2;
+  if (Number.isInteger(numero) && residuo === 0 ) {
+    console.log(true)
+  } else {
+    console.log(false)
+  }
+
 }
 
 function esEntero(numero) {
-    return Number.isInteger(numero);
+  console.log(Number.isInteger(numero));
+  // Debe devolver true si el número es un entero, false en caso contrario
 }
 
 // Exportar funciones para pruebas (estilo Node.js)
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        sumarMultiplesNumeros,
-        multiplicarMultiplesNumeros,
-        esPar,
-        esEntero
-    };
+if (typeof module !== "undefined" && module.exports) {
+  module.exports = {
+    sumarMultiplesNumeros,
+    multiplicarMultiplesNumeros,
+    esPar,
+    esEntero,
+  };
 }
 
 // Ejecutar la función principal si este archivo se ejecuta directamente
 if (require.main === module) {
-    principal();
+  principal();
 }
