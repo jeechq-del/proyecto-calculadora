@@ -2,42 +2,38 @@ function principal() {
   console.log("¡Hola, estudiantes!");
   esEntero(3);
   esPar(6);
-  sumarMultiplesNumeros([5,7,9]); 
-  multiplicarMultiplesNumeros([4,5,6]);
+  sumarMultiplesNumeros([5, 7, 9]);
+  multiplicarMultiplesNumeros([4, 5, 6]);
 }
 
 // Funciones requeridas para la calificación automática
-function sumarMultiplesNumeros(numeros) { 
-  const a = numeros[0];
-  const b = numeros[1];
-  const c = numeros[2];
-
-  const suma = a + b + c; 
-  console.log(suma);
+function sumarMultiplesNumeros(numeros) {
+  let suma = 0;
+  for (let i = 0; i < numeros.length; i++) {
+    suma = suma + numeros[i]; // va sumando cada número
+  }
+  return suma;
 }
 
 function multiplicarMultiplesNumeros(numeros) {
-  
-  const a = numeros[0];
-  const b = numeros[1];
-  const c = numeros[2];
-  const multiplicacion= a*b*c
-  console.log(multiplicacion);
+  let multiplicacion = 1;
+  for (let i = 0; i < numeros.length; i++) {
+    multiplicacion = multiplicacion*numeros[i]; // va sumando cada número
+  }
+  return multiplicacion;
 }
 
 function esPar(numero) {
-  
   let residuo = numero % 2;
-  if (Number.isInteger(numero) && residuo === 0 ) {
-    console.log(true)
+  if (Number.isInteger(numero) && residuo === 0) {
+    return true;
   } else {
-    console.log(false)
+    return false;
   }
-
 }
 
 function esEntero(numero) {
-  console.log(Number.isInteger(numero));
+  return Number.isInteger(numero);
   // Debe devolver true si el número es un entero, false en caso contrario
 }
 
